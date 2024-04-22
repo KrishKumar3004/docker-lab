@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="https://img.icons8.com/pastel-glyph/1x/internet.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.svgrepo.com/show/507111/com-mac-old.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        MIS
+      </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/students">Students</a>
+            <a class="nav-item nav-link" href="/subjects">Subjects</a>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <h1 style="font-family: 'Kanit', sans-serif;margin:25px auto">
+            All Students
+        </h1>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Marks</th>
+                <th scope="col">Percentage</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% for(let student of students){%>
+              <tr>
+                <% let total = 0 %>
+                <% let cnt = 0 %>
+                <% for(let subject of subjects){ %>
+                  <% cnt = cnt + 1; %>
+                  <% total += student.marks.get(subject.courseId) %>
+                  <% } %>  
+                <th scope="row"><%= student.regNo %></th>
+                <td><%= student.name %></td>
+                <td><%= total %></td>
+                <td><%= (total/cnt).toFixed(2) %>%</td>
+                <td><a role="button" class="btn btn-dark" href="/students/<%=student._id%>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg></a></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        <a href="/students/new">Add New Student</a>
+    </div>
+    
+</body>
+
+</html>

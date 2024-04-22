@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Student</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="https://img.icons8.com/pastel-glyph/1x/internet.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.svgrepo.com/show/507111/com-mac-old.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            MIS
+          </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/students">Students</a>
+            <a class="nav-item nav-link" href="/subjects">Subjects</a>
+          </div>
+        </div>
+      </nav>
+    <div class="container" style="max-width:500px">
+        <h1 style="font-family: 'Kanit', sans-serif;margin:25px auto">Add New Student</h1>
+
+    <form action="/students" method="POST">
+        <div class="form-group">
+            <label for="regNo">RegNo</label>
+            <input class="form-control" type="name" id="regNo" name="regNo">
+        </div>
+        
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="name" id="name" name="name">
+        </div>
+        
+
+        <div class="form-group">
+            <label for="batch">Batch</label>
+            <input class="form-control" type="number" id="batch" name="batch">
+        </div>
+        
+
+        <div class="form-group">
+            <label for="sem">Sem</label>
+            <input class="form-control" type="number" id="sem" name="sem">
+        </div>
+        
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+        <a class="btn btn-danger" style="text-decoration: none; color:white" href="/students">Cancel</a>
+    </form>
+    </div>
+</body>
+
+</html>
