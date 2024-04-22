@@ -6,14 +6,13 @@ const Student = require("./models/student");
 const methodOverride = require("method-override");
 const Subject = require("./models/subject");
 
-mongoose.connect('mongodb://admin:password@localhost:27017/', {
-
-})
+mongoose
+  .connect("mongodb://mongo_db:27017/test", {})
   .then(() => {
-    console.log('Mongo Connection Open');
+    console.log("Mongo Connection Open");
   })
   .catch((err) => {
-    console.error('Mongo Error:', err);
+    console.error("Mongo Error:", err);
   });
 
 app.set("views", path.join(__dirname, "views"));
@@ -25,6 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 /********************************************************************* */
+
+app.get("/", (req, res) => {
+  res.redirect("/students");
+});
 
 // route to show the list of every student
 app.get("/students", async (req, res) => {

@@ -1,8 +1,8 @@
 FROM node:lts
 WORKDIR /app
 COPY package*.json .
-# RUN npm ci
-# COPY . .
-# CMD ["npm", "start"]
+RUN npm i
+COPY . .
+CMD ["npm", "start"]
 
-CMD "bash"
+# CMD "bash"
